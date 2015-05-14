@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +17,76 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dial" translatesAutoresizingMaskIntoConstraints="NO" id="aJt-YX-Cuv">
+                                <rect key="frame" x="16" y="74" width="568" height="568"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aJt-YX-Cuv" secondAttribute="height" multiplier="1:1" id="gRw-5x-Uhm"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="needle" translatesAutoresizingMaskIntoConstraints="NO" id="35v-Ol-lSi">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="35v-Ol-lSi" secondAttribute="height" multiplier="453:242" id="BCq-Jv-CZs"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BCq-Jv-CZs"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="BCq-Jv-CZs"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="aJt-YX-Cuv" secondAttribute="centerY" constant="-58" id="MmV-TT-EF3">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="aJt-YX-Cuv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="SCR-IM-OGo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aJt-YX-Cuv" secondAttribute="trailing" id="dqw-fr-YaL"/>
+                            <constraint firstItem="35v-Ol-lSi" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="i84-8Q-B3x"/>
+                            <constraint firstAttribute="centerY" secondItem="35v-Ol-lSi" secondAttribute="centerY" id="p46-iq-AMg">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="aJt-YX-Cuv" secondAttribute="centerX" id="qd6-E2-qY8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="35v-Ol-lSi" secondAttribute="trailing" id="v2d-50-AaL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="35v-Ol-lSi"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="i84-8Q-B3x"/>
+                                <exclude reference="p46-iq-AMg"/>
+                                <exclude reference="v2d-50-AaL"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="35v-Ol-lSi"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="i84-8Q-B3x"/>
+                                <include reference="p46-iq-AMg"/>
+                                <include reference="v2d-50-AaL"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="dial" destination="aJt-YX-Cuv" id="sso-p1-qtO"/>
+                        <outlet property="needle" destination="35v-Ol-lSi" id="QMH-tv-jBd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="dial" width="150" height="150"/>
+        <image name="needle" width="200" height="200"/>
+    </resources>
 </document>

@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
+@property (nonatomic, weak) IBOutlet UIImageView* dial;
+@property (nonatomic, weak) IBOutlet UIImageView* needle;
+@property (nonatomic, assign) float oldX;
+@property (nonatomic, assign) float oldY;
+@property (nonatomic, assign) float startingRotation;
+@property (nonatomic, assign) float arbitraryConstant;
 
 @end
 
